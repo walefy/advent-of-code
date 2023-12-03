@@ -23,20 +23,21 @@ function parseStringToNumber(str: string) {
     .replace(/eight/g, 'e8t')
     .replace(/nine/g, 'n9e');
 
-  const numbers = replacedString.trim().split('').filter((char) => !Number.isNaN(Number(char))).join('');
+  const numbers = replacedString.trim().split('').filter((char) => !Number.isNaN(Number(char)));
 
-  if (numbers.length === 1 ) return numbers[0];
+  if (numbers.length === 0) return 0;
+  if (numbers.length === 1 ) return Number(numbers[0]);
   
   const first = numbers[0];
   const second = numbers[numbers.length - 1];
 
-  return first + second;
+  return Number(first + second);
 }
 
 export function parseStringPart01(str: string) {
   const lines = str.trim().split('\n');
   const numbers: number[] = lines.map((line) => {
-    const digits = line.trim().split('').filter((char) => !Number.isNaN(Number(char))).join('');
+    const digits = line.trim().split('').filter((char) => !Number.isNaN(Number(char)));
     
     return Number(`${digits[0]}${digits[digits.length - 1]}`);
   });
@@ -46,7 +47,7 @@ export function parseStringPart01(str: string) {
 
 export function parseStringPart02(str: string) {
   const lines = str.trim().split('\n');
-  const numbers: number[] = lines.map(parseStringToNumber).map(Number);
+  const numbers: number[] = lines.map(parseStringToNumber)
   
   return sumArr(numbers);
 }

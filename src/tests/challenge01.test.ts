@@ -26,9 +26,12 @@ describe('Test Challenge 01', () => {
     zoneight234
     7pqrstsixteen
     e2
+    teste
+    2e
+    >1^
     `;
 
-    const expected = 283;
+    const expected = 286;
 
     assert.strictEqual(parseStringPart02(input), expected);
   });
