@@ -2,7 +2,7 @@ import fs from 'fs';
 
 export function challenge01() {
   const input = fs.readFileSync('src/inputs/input01/part1.txt');
-  
+
   console.log('PART 01:', parseStringPart01(input.toString()));
   console.log('PART 02:', parseStringPart02(input.toString()));
 }
@@ -26,8 +26,7 @@ function parseStringToNumber(str: string) {
   const numbers = replacedString.trim().split('').filter((char) => !Number.isNaN(Number(char)));
 
   if (numbers.length === 0) return 0;
-  if (numbers.length === 1 ) return Number(numbers[0]);
-  
+
   const first = numbers[0];
   const second = numbers[numbers.length - 1];
 
@@ -41,7 +40,7 @@ export function parseStringPart01(str: string) {
     
     return Number(`${digits[0]}${digits[digits.length - 1]}`);
   });
-  
+
   return sumArr(numbers);
 }
 

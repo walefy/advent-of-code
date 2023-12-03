@@ -31,7 +31,7 @@ describe('Test Challenge 01', () => {
     >1^
     `;
 
-    const expected = 286;
+    const expected = 336;
 
     assert.strictEqual(parseStringPart02(input), expected);
   });
